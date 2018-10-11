@@ -1,6 +1,6 @@
 ﻿namespace StockChecker
 {
-    partial class FrmStockChecker
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.

@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace StockChecker
 {
-    static class StockChecker
+    static class Program
     {
         /// <summary>
         /// The main entry point for the application.
@@ -16,7 +16,7 @@ namespace StockChecker
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmStockChecker());
+            Application.Run(new Form1());
         }
     }
 }
