@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace StockChecker
 {
-    public partial class Form1 : Form
+    public partial class FrmStockChecker : Form
     {
-        public Form1()
+        public FrmStockChecker()
         {
             InitializeComponent();
         }
