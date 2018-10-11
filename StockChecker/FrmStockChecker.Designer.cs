@@ -28,17 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // FrmStockChecker
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 419);
-            this.Name = "FrmStockChecker";
-            this.Text = "Stock Checker";
-            this.ResumeLayout(false);
-
+            this.Text = "Form1";
         }
 
         #endregion
