@@ -14,6 +14,8 @@ namespace StockChecker
 {
     public partial class FrmStockCheckerMain : Form
     {
+        const string productList = @"../../../res/Products.xml";
+
         public FrmStockCheckerMain()
         {
             InitializeComponent();
@@ -34,7 +36,7 @@ namespace StockChecker
                 XPathNodeIterator nodeIter;
                 string strExpression;
 
-                docNav = new XPathDocument(@"C:\Users\FIS40063783\source\repos\ComboBoxExample\ComboBoxExample\res\Products.xml");
+                docNav = new XPathDocument(productList);
                 nav = docNav.CreateNavigator();
                 strExpression = "/AllCategories/Category/Products/Product/ProductName[../UnitsInStock <=" + txtProductName.Text + "]";
 
