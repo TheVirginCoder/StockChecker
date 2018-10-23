@@ -46,7 +46,8 @@ namespace StockChecker
                 {
                     lstProducts.Items.Add(nodeIter.Current.Value);
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
