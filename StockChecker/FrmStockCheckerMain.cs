@@ -14,7 +14,7 @@ namespace StockChecker
 {
     public partial class FrmStockCheckerMain : Form
     {
-        const string productList = @"../../../res/Products.xml";
+        const string productList = "../../res/Products.xml";
 
         public FrmStockCheckerMain()
         {
