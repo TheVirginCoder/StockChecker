@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace StockChecker
 {
-    static class Program
+    static class StockChecker
     {
         /// <summary>
         /// The main entry point for the application.
