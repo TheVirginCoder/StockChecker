@@ -28,21 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lstProducts = new System.Windows.Forms.ListBox();
             this.lblProductID = new System.Windows.Forms.Label();
             this.cbxProductIDList = new System.Windows.Forms.ComboBox();
             this.lblProductName = new System.Windows.Forms.Label();
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
+            this.dgvProducts = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lstProducts
-            // 
-            this.lstProducts.FormattingEnabled = true;
-            this.lstProducts.Location = new System.Drawing.Point(329, 16);
-            this.lstProducts.Name = "lstProducts";
-            this.lstProducts.Size = new System.Drawing.Size(304, 290);
-            this.lstProducts.TabIndex = 0;
             // 
             // lblProductID
             // 
@@ -88,32 +81,41 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // dgvProducts
+            // 
+            this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProducts.Location = new System.Drawing.Point(237, 37);
+            this.dgvProducts.Name = "dgvProducts";
+            this.dgvProducts.Size = new System.Drawing.Size(396, 295);
+            this.dgvProducts.TabIndex = 6;
+            // 
             // FrmStockCheckerMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(645, 371);
+            this.Controls.Add(this.dgvProducts);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtProductName);
             this.Controls.Add(this.lblProductName);
             this.Controls.Add(this.cbxProductIDList);
             this.Controls.Add(this.lblProductID);
-            this.Controls.Add(this.lstProducts);
             this.Name = "FrmStockCheckerMain";
             this.Text = "Stock Checker Program";
+            this.Load += new System.EventHandler(this.FrmStockCheckerMain_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox lstProducts;
         private System.Windows.Forms.Label lblProductID;
         private System.Windows.Forms.ComboBox cbxProductIDList;
         private System.Windows.Forms.Label lblProductName;
         private System.Windows.Forms.TextBox txtProductName;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.DataGridView dgvProducts;
     }
 }
 

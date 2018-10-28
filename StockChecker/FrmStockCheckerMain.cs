@@ -41,17 +41,36 @@ namespace StockChecker
                 strExpression = "/AllCategories/Category/Products/Product/ProductName[../UnitsInStock <=" + txtProductName.Text + "]";
 
                 nodeIter = nav.Select(strExpression);
-                lstProducts.Items.Clear();
+               /* lstProducts.Items.Clear();
                 lstProducts.Items.Add("List of stock that requires reordering: ");
 
                 while (nodeIter.MoveNext())
                 {
                     lstProducts.Items.Add(nodeIter.Current.Value);
-                }
+                } */
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void FrmStockCheckerMain_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                DataView dv;
+
+                ds.ReadXml(productList);
+                dv = ds.Tables[2].DefaultView;
+
+                dgvProducts.DataSource = dv;
+                dgvProducts.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
