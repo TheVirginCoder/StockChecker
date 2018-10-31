@@ -14,6 +14,8 @@ namespace StockChecker
 {
     public partial class FrmStockCheckerMain : Form
     {
+        DataSet ds = new DataSet();
+        DataView dv;
         const string productList = "../../res/Products.xml";
 
         public FrmStockCheckerMain()
@@ -38,9 +40,12 @@ namespace StockChecker
 
                 docNav = new XPathDocument(productList);
                 nav = docNav.CreateNavigator();
-                strExpression = "/AllCategories/Category/Products/Product/ProductName[../UnitsInStock <=" + txtProductName.Text + "]";
+                strExpression = "/AllCategories/Category/Products/Product[/" + cbxProductIDList.SelectedText + "= \"" + txtProductName.Text + "\"]";
 
                 nodeIter = nav.Select(strExpression);
+
+                //dv = new DataView(ds.Tables[cbxProductIDList.SelectedText].Columns[txtProductName.Text]);
+                dgvProducts.Refresh();
                /* lstProducts.Items.Clear();
                 lstProducts.Items.Add("List of stock that requires reordering: ");
 
@@ -59,14 +64,22 @@ namespace StockChecker
         {
             try
             {
-                DataSet ds = new DataSet();
-                DataView dv;
+                XmlTextReader txtin = new XmlTextReader(productList);
+                
 
                 ds.ReadXml(productList);
                 dv = ds.Tables[2].DefaultView;
 
                 dgvProducts.DataSource = dv;
                 dgvProducts.Refresh();
+
+                while (txtin.Read())
+                {
+                    if (txtin.NodeType.Equals(XmlNodeType.Element) && !cbxProductIDList.Items.Contains(txtin.Name))
+                    {
+                        cbxProductIDList.Items.Add(txtin.Name);
+                    }
+                }
             }
             catch (Exception ex)
             {
