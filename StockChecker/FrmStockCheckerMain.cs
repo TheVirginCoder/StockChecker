@@ -36,6 +36,11 @@ namespace StockChecker
                     ds.Tables[2].DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'", cbxProductIDList.Text, txtProductName.Text); 
                     dgvProducts.Refresh();
                 }
+
+                if (dv.Count == 0)
+                {
+                    MessageBox.Show("No results found!", "Search", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             catch (Exception ex)
             {

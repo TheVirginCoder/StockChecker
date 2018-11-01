@@ -65,6 +65,9 @@
     </Compile>
     <Compile Include="StockChecker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmMainMenu.resx">
+      <DependentUpon>FrmMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmStockCheckerMain.resx">
       <DependentUpon>FrmStockCheckerMain.cs</DependentUpon>
     </EmbeddedResource>

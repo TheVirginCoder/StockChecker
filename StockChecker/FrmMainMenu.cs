@@ -16,5 +16,12 @@ namespace StockChecker
         {
             InitializeComponent();
         }
+
+        private void btnStockSearch_Click(object sender, EventArgs e)
+        {
+            FrmStockCheckerMain stocksearch = new FrmStockCheckerMain();
+            stocksearch.Show();
+            this.Hide();
+        }
     }
 }
