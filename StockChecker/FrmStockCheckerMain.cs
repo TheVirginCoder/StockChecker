@@ -30,29 +30,12 @@ namespace StockChecker
                 if (string.IsNullOrWhiteSpace(txtProductName.Text))
                 {
                     MessageBox.Show("Error: Please enter a value for the units in stock");
-                    return;
                 }
-
-                XPathNavigator nav;
-                XPathDocument docNav;
-                XPathNodeIterator nodeIter;
-                string strExpression;
-
-                docNav = new XPathDocument(productList);
-                nav = docNav.CreateNavigator();
-                strExpression = "/AllCategories/Category/Products/Product[/" + cbxProductIDList.SelectedText + "= \"" + txtProductName.Text + "\"]";
-
-                nodeIter = nav.Select(strExpression);
-
-                //dv = new DataView(ds.Tables[cbxProductIDList.SelectedText].Columns[txtProductName.Text]);
-                dgvProducts.Refresh();
-               /* lstProducts.Items.Clear();
-                lstProducts.Items.Add("List of stock that requires reordering: ");
-
-                while (nodeIter.MoveNext())
+                else
                 {
-                    lstProducts.Items.Add(nodeIter.Current.Value);
-                } */
+                    ds.Tables[2].DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'", cbxProductIDList.Text, txtProductName.Text); 
+                    dgvProducts.Refresh();
+                }
             }
             catch (Exception ex)
             {
@@ -66,8 +49,7 @@ namespace StockChecker
             {
                 XmlTextReader txtin = new XmlTextReader(productList);
                 
-
-                ds.ReadXml(productList);
+                ds.ReadXml(productList, XmlReadMode.InferSchema);
                 dv = ds.Tables[2].DefaultView;
 
                 dgvProducts.DataSource = dv;
