@@ -28,11 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.gbxProducts = new System.Windows.Forms.GroupBox();
+            this.lstProducts = new System.Windows.Forms.ListBox();
+            this.gbxProducts.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // gbxProducts
+            // 
+            this.gbxProducts.Controls.Add(this.lstProducts);
+            this.gbxProducts.Location = new System.Drawing.Point(310, 35);
+            this.gbxProducts.Name = "gbxProducts";
+            this.gbxProducts.Size = new System.Drawing.Size(331, 274);
+            this.gbxProducts.TabIndex = 0;
+            this.gbxProducts.TabStop = false;
+            this.gbxProducts.Text = "List of Products that need reordered";
+            // 
+            // lstProducts
+            // 
+            this.lstProducts.FormattingEnabled = true;
+            this.lstProducts.Location = new System.Drawing.Point(7, 20);
+            this.lstProducts.Name = "lstProducts";
+            this.lstProducts.Size = new System.Drawing.Size(318, 251);
+            this.lstProducts.TabIndex = 0;
+            // 
+            // FrmReorderList
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(653, 356);
+            this.Controls.Add(this.gbxProducts);
+            this.Name = "FrmReorderList";
             this.Text = "FrmReorderList";
+            this.Load += new System.EventHandler(this.FrmReorderList_Load);
+            this.gbxProducts.ResumeLayout(false);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.GroupBox gbxProducts;
+        private System.Windows.Forms.ListBox lstProducts;
     }
 }

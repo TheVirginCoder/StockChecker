@@ -23,5 +23,12 @@ namespace StockChecker
             stocksearch.Show();
             this.Hide();
         }
+
+        private void btnReorderList_Click(object sender, EventArgs e)
+        {
+            FrmReorderList reorderList = new FrmReorderList();
+            reorderList.Show();
+            this.Hide();
+        }
     }
 }
