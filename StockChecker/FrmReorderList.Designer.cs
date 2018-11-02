@@ -30,6 +30,8 @@
         {
             this.gbxProducts = new System.Windows.Forms.GroupBox();
             this.lstProducts = new System.Windows.Forms.ListBox();
+            this.btnSaveAsText = new System.Windows.Forms.Button();
+            this.sfdSaveList = new System.Windows.Forms.SaveFileDialog();
             this.gbxProducts.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,11 +53,26 @@
             this.lstProducts.Size = new System.Drawing.Size(318, 251);
             this.lstProducts.TabIndex = 0;
             // 
+            // btnSaveAsText
+            // 
+            this.btnSaveAsText.Location = new System.Drawing.Point(13, 163);
+            this.btnSaveAsText.Name = "btnSaveAsText";
+            this.btnSaveAsText.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveAsText.TabIndex = 1;
+            this.btnSaveAsText.Text = "Save as text file";
+            this.btnSaveAsText.UseVisualStyleBackColor = true;
+            this.btnSaveAsText.Click += new System.EventHandler(this.btnSaveAsText_Click);
+            // 
+            // sfdSaveList
+            // 
+            this.sfdSaveList.Filter = "Text File (*.txt)|*.txt";
+            // 
             // FrmReorderList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 356);
+            this.Controls.Add(this.btnSaveAsText);
             this.Controls.Add(this.gbxProducts);
             this.Name = "FrmReorderList";
             this.Text = "FrmReorderList";
@@ -69,5 +86,7 @@
 
         private System.Windows.Forms.GroupBox gbxProducts;
         private System.Windows.Forms.ListBox lstProducts;
+        private System.Windows.Forms.Button btnSaveAsText;
+        private System.Windows.Forms.SaveFileDialog sfdSaveList;
     }
 }

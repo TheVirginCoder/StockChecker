@@ -40,5 +40,30 @@ namespace StockChecker
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnSaveAsText_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (sfdSaveList.ShowDialog() == DialogResult.OK)
+                {
+                    StreamWriter sr = new StreamWriter(sfdSaveList.FileName);
+
+                    sr.WriteLine("REORDER LIST");
+                    sr.WriteLine("===================");
+
+                    for (int i = 0; i < lstProducts.Items.Count; i++)
+                    {
+                        sr.WriteLine(lstProducts.Items[i].ToString());
+                    }
+                    sr.Dispose();
+                    sr.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
