@@ -15,7 +15,7 @@ namespace StockChecker
 {
     public partial class FrmReorderList : Form
     {
-        const string productList = "../../res/Products.xml";
+        const string productList = "../../res/Products.xml"; //Path to products.xml
         public FrmReorderList()
         {
             InitializeComponent();
@@ -25,7 +25,7 @@ namespace StockChecker
         {
             try
             {
-                string expression = "/AllCategories/Category/Products/Product/ProductName[../UnitsInStock < 20]";
+                string expression = "/AllCategories/Category/Products/Product/ProductName[../UnitsInStock < 20]"; //Display names of products with < 20 in stock
                 XPathDocument doc = new XPathDocument(productList);
                 XPathNavigator nav = doc.CreateNavigator();
                 XPathNodeIterator nodeIter = nav.Select(expression);
@@ -47,15 +47,19 @@ namespace StockChecker
             {
                 if (sfdSaveList.ShowDialog() == DialogResult.OK)
                 {
+                    //Opens stream to write to the filename entered in the savedialog
                     StreamWriter sr = new StreamWriter(sfdSaveList.FileName);
 
+                    //Write heading to file
                     sr.WriteLine("REORDER LIST");
                     sr.WriteLine("===================");
 
+                    //Adds items in the listbox to the file
                     for (int i = 0; i < lstProducts.Items.Count; i++)
                     {
                         sr.WriteLine(lstProducts.Items[i].ToString());
                     }
+                    //Closes stream and frees resources
                     sr.Dispose();
                     sr.Close();
                 }
