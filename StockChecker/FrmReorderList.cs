@@ -23,22 +23,7 @@ namespace StockChecker
 
         private void FrmReorderList_Load(object sender, EventArgs e)
         {
-            try
-            {
-                string expression = "/AllCategories/Category/Products/Product/ProductName[../UnitsInStock < 20]"; //Display names of products with < 20 in stock
-                XPathDocument doc = new XPathDocument(productList);
-                XPathNavigator nav = doc.CreateNavigator();
-                XPathNodeIterator nodeIter = nav.Select(expression);
-
-                while (nodeIter.MoveNext())
-                {
-                    lstProducts.Items.Add(nodeIter.Current.Value);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            GetItemsNeededForReorder(15);
         }
 
         private void btnSaveAsText_Click(object sender, EventArgs e)
@@ -67,6 +52,39 @@ namespace StockChecker
             catch (Exception ex)
             {
                 MessageBox.Show("Error:" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void GetItemsNeededForReorder(int minStock)
+        {
+            try
+            {
+                string expression = string.Format("/AllCategories/Category/Products/Product/ProductName[../UnitsInStock < {0}]", minStock); //Display names of products with < 20 in stock
+                XPathDocument doc = new XPathDocument(productList);
+                XPathNavigator nav = doc.CreateNavigator();
+                XPathNodeIterator nodeIter = nav.Select(expression);
+
+                while (nodeIter.MoveNext())
+                {
+                    lstProducts.Items.Add(nodeIter.Current.Value);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                lstProducts.Items.Clear();
+                GetItemsNeededForReorder(Convert.ToInt32(textBox1.Text));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

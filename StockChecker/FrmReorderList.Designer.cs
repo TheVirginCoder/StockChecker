@@ -32,7 +32,11 @@
             this.lstProducts = new System.Windows.Forms.ListBox();
             this.btnSaveAsText = new System.Windows.Forms.Button();
             this.sfdSaveList = new System.Windows.Forms.SaveFileDialog();
+            this.gbxSearch = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.gbxProducts.SuspendLayout();
+            this.gbxSearch.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbxProducts
@@ -67,17 +71,48 @@
             // 
             this.sfdSaveList.Filter = "Text File (*.txt)|*.txt";
             // 
+            // gbxSearch
+            // 
+            this.gbxSearch.Controls.Add(this.button1);
+            this.gbxSearch.Controls.Add(this.textBox1);
+            this.gbxSearch.Location = new System.Drawing.Point(13, 35);
+            this.gbxSearch.Name = "gbxSearch";
+            this.gbxSearch.Size = new System.Drawing.Size(291, 122);
+            this.gbxSearch.TabIndex = 2;
+            this.gbxSearch.TabStop = false;
+            this.gbxSearch.Text = "groupBox1";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(100, 20);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(185, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(100, 47);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmReorderList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(653, 356);
+            this.Controls.Add(this.gbxSearch);
             this.Controls.Add(this.btnSaveAsText);
             this.Controls.Add(this.gbxProducts);
             this.Name = "FrmReorderList";
             this.Text = "FrmReorderList";
             this.Load += new System.EventHandler(this.FrmReorderList_Load);
             this.gbxProducts.ResumeLayout(false);
+            this.gbxSearch.ResumeLayout(false);
+            this.gbxSearch.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -88,5 +123,8 @@
         private System.Windows.Forms.ListBox lstProducts;
         private System.Windows.Forms.Button btnSaveAsText;
         private System.Windows.Forms.SaveFileDialog sfdSaveList;
+        private System.Windows.Forms.GroupBox gbxSearch;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
