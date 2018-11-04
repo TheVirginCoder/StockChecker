@@ -64,9 +64,9 @@ namespace StockChecker
                 {
                     cbxProductIDList.Items.Add(col.ColumnName);
                 }
-                cbxProductIDList.Items.RemoveAt(7);
-                cbxProductIDList.Items.RemoveAt(8);
+                cbxProductIDList.Items.RemoveAt(10);
                 cbxProductIDList.Items.RemoveAt(9);
+                cbxProductIDList.Items.RemoveAt(8);
             }
             catch (Exception ex)
             {
