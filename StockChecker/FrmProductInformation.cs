@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using System.Xml;
-using System.Xml.XPath;
 
 namespace StockChecker
 {
@@ -33,7 +33,7 @@ namespace StockChecker
                 }
                 else
                 {
-                    ds.Tables[2].DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'", cbxProductIDList.Text, txtProductName.Text); 
+                    ds.Tables[2].DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'", cbxSearchCriteria.Text, txtProductName.Text); 
                     dgvProducts.Refresh();
                 }
 
@@ -52,19 +52,8 @@ namespace StockChecker
         {
             try
             {
-                ds.ReadXml(productList);
-                dv = ds.Tables[2].DefaultView;
-
-                dgvProducts.DataSource = dv;
-                dgvProducts.Refresh();
-
-                foreach (DataColumn col in ds.Tables[2].Columns)
-                {
-                    cbxProductIDList.Items.Add(col.ColumnName);
-                }
-                cbxProductIDList.Items.RemoveAt(10);
-                cbxProductIDList.Items.RemoveAt(9);
-                cbxProductIDList.Items.RemoveAt(8);
+                cbxSearchCriteria.SelectedIndex = 1;
+                InitializeTable();
             }
             catch (Exception ex)
             {
@@ -141,6 +130,93 @@ namespace StockChecker
         private void FrmProductInformation_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string output = "";
+                if (sfdExport.ShowDialog() == DialogResult.OK)
+                {
+                    StreamWriter sw = new StreamWriter(sfdExport.FileName);
+
+                    for (int i = 0; i <= dgvProducts.Columns.Count - 1; i++)
+                    {
+                        if (i > 0)
+                        {
+                            sw.Write(",");
+                        }
+                        sw.Write(dgvProducts.Columns[i].HeaderText);
+                    }
+                    
+                    sw.WriteLine();
+
+                    for (int j = 0; j <= dgvProducts.Columns.Count - 1; j++)
+                    {
+                        if (j > 0)
+                        {
+                            sw.WriteLine();
+                        }
+
+                        for (int i = 0; i <= dgvProducts.Columns.Count - 1; i++)
+                        {
+                            if (i > 0)
+                            {
+                                sw.Write(",");
+                            }
+
+                            output = dgvProducts.Rows[j].Cells[i].Value.ToString();
+                            output = output.Replace(',', ' ');
+                            output = output.Replace(Environment.NewLine, " ");
+
+                            sw.Write(output);
+                        }
+                    }
+
+                    sw.Dispose();
+                    sw.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void InitializeTable()
+        {
+            ds.ReadXml(productList);
+            dv = ds.Tables[2].DefaultView;
+
+            dgvProducts.DataSource = dv;
+            dgvProducts.Refresh();
+
+            foreach (DataColumn col in ds.Tables[2].Columns)
+            {
+                cbxSearchCriteria.Items.Add(col.ColumnName);
+            }
+            cbxSearchCriteria.Items.RemoveAt(10);
+            cbxSearchCriteria.Items.RemoveAt(9);
+            cbxSearchCriteria.Items.RemoveAt(8);
+        }
+
+        private void btnExport_MouseEnter(object sender, EventArgs e)
+        {
+            btnExport.BackColor = Color.Navy;
+        }
+
+        private void btnExport_MouseLeave(object sender, EventArgs e)
+        {
+            btnExport.BackColor = Color.Red;
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            //Reset all values in the form
+            txtProductName.Text = "";
+            cbxSearchCriteria.SelectedIndex = 1;
+            InitializeTable();
         }
     }
 }

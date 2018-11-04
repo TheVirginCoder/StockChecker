@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cbxProductIDList = new System.Windows.Forms.ComboBox();
+            this.cbxSearchCriteria = new System.Windows.Forms.ComboBox();
             this.lblProductName = new System.Windows.Forms.Label();
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -36,20 +36,23 @@
             this.btnReorderList = new System.Windows.Forms.Button();
             this.btnReturnToMenu = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.sfdExport = new System.Windows.Forms.SaveFileDialog();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
             // 
-            // cbxProductIDList
+            // cbxSearchCriteria
             // 
-            this.cbxProductIDList.BackColor = System.Drawing.Color.Red;
-            this.cbxProductIDList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxProductIDList.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxProductIDList.ForeColor = System.Drawing.Color.White;
-            this.cbxProductIDList.FormattingEnabled = true;
-            this.cbxProductIDList.Location = new System.Drawing.Point(347, 12);
-            this.cbxProductIDList.Name = "cbxProductIDList";
-            this.cbxProductIDList.Size = new System.Drawing.Size(154, 26);
-            this.cbxProductIDList.TabIndex = 2;
+            this.cbxSearchCriteria.BackColor = System.Drawing.Color.Red;
+            this.cbxSearchCriteria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxSearchCriteria.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxSearchCriteria.ForeColor = System.Drawing.Color.White;
+            this.cbxSearchCriteria.FormattingEnabled = true;
+            this.cbxSearchCriteria.Location = new System.Drawing.Point(347, 13);
+            this.cbxSearchCriteria.Name = "cbxSearchCriteria";
+            this.cbxSearchCriteria.Size = new System.Drawing.Size(154, 26);
+            this.cbxSearchCriteria.TabIndex = 2;
             // 
             // lblProductName
             // 
@@ -101,7 +104,7 @@
             this.btnReorderList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReorderList.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReorderList.ForeColor = System.Drawing.Color.White;
-            this.btnReorderList.Location = new System.Drawing.Point(130, 416);
+            this.btnReorderList.Location = new System.Drawing.Point(119, 416);
             this.btnReorderList.Name = "btnReorderList";
             this.btnReorderList.Size = new System.Drawing.Size(101, 51);
             this.btnReorderList.TabIndex = 7;
@@ -143,12 +146,48 @@
             this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
             this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 
+            // btnExport
+            // 
+            this.btnExport.BackColor = System.Drawing.Color.Red;
+            this.btnExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExport.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExport.ForeColor = System.Drawing.Color.White;
+            this.btnExport.Location = new System.Drawing.Point(226, 416);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(101, 51);
+            this.btnExport.TabIndex = 10;
+            this.btnExport.Text = "Export as CSV...";
+            this.btnExport.UseVisualStyleBackColor = false;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            this.btnExport.MouseEnter += new System.EventHandler(this.btnExport_MouseEnter);
+            this.btnExport.MouseLeave += new System.EventHandler(this.btnExport_MouseLeave);
+            // 
+            // sfdExport
+            // 
+            this.sfdExport.Filter = "CSV File (*.csv)|*.csv";
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.Red;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Location = new System.Drawing.Point(286, 39);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(101, 51);
+            this.btnClear.TabIndex = 11;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // FrmProductInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(759, 479);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnReturnToMenu);
             this.Controls.Add(this.btnReorderList);
@@ -156,7 +195,7 @@
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtProductName);
             this.Controls.Add(this.lblProductName);
-            this.Controls.Add(this.cbxProductIDList);
+            this.Controls.Add(this.cbxSearchCriteria);
             this.Name = "FrmProductInformation";
             this.Text = "Product Information";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmProductInformation_FormClosed);
@@ -168,7 +207,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox cbxProductIDList;
+        private System.Windows.Forms.ComboBox cbxSearchCriteria;
         private System.Windows.Forms.Label lblProductName;
         private System.Windows.Forms.TextBox txtProductName;
         private System.Windows.Forms.Button btnSearch;
@@ -176,6 +215,9 @@
         private System.Windows.Forms.Button btnReorderList;
         private System.Windows.Forms.Button btnReturnToMenu;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.SaveFileDialog sfdExport;
+        private System.Windows.Forms.Button btnClear;
     }
 }
 
