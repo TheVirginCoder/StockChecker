@@ -71,7 +71,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.Red;
-            this.lblTitle.Location = new System.Drawing.Point(44, 9);
+            this.lblTitle.Location = new System.Drawing.Point(57, 9);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(225, 24);
             this.lblTitle.TabIndex = 2;
@@ -83,7 +83,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Location = new System.Drawing.Point(226, 53);
+            this.btnExit.Location = new System.Drawing.Point(225, 53);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(101, 51);
             this.btnExit.TabIndex = 3;
@@ -98,7 +98,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(495, 279);
+            this.ClientSize = new System.Drawing.Size(338, 111);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnReorderList);
