@@ -52,8 +52,6 @@ namespace StockChecker
         {
             try
             {
-                XmlTextReader txtin = new XmlTextReader(productList);
-                
                 ds.ReadXml(productList);
                 dv = ds.Tables[2].DefaultView;
 
