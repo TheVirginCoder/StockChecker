@@ -63,7 +63,7 @@
             this.btnSaveAsText.Name = "btnSaveAsText";
             this.btnSaveAsText.Size = new System.Drawing.Size(75, 23);
             this.btnSaveAsText.TabIndex = 1;
-            this.btnSaveAsText.Text = "Save as text file";
+            this.btnSaveAsText.Text = "Export...";
             this.btnSaveAsText.UseVisualStyleBackColor = true;
             this.btnSaveAsText.Click += new System.EventHandler(this.btnSaveAsText_Click);
             // 
@@ -108,7 +108,7 @@
             this.Controls.Add(this.btnSaveAsText);
             this.Controls.Add(this.gbxProducts);
             this.Name = "FrmReorderList";
-            this.Text = "FrmReorderList";
+            this.Text = "Reorder List";
             this.Load += new System.EventHandler(this.FrmReorderList_Load);
             this.gbxProducts.ResumeLayout(false);
             this.gbxSearch.ResumeLayout(false);
