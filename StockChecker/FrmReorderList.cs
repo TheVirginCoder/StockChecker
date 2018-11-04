@@ -32,21 +32,16 @@ namespace StockChecker
             {
                 if (sfdSaveList.ShowDialog() == DialogResult.OK)
                 {
-                    //Opens stream to write to the filename entered in the savedialog
-                    StreamWriter sr = new StreamWriter(sfdSaveList.FileName);
 
-                    //Write heading to file
-                    sr.WriteLine("REORDER LIST");
-                    sr.WriteLine("===================");
-
-                    //Adds items in the listbox to the file
-                    for (int i = 0; i < lstProducts.Items.Count; i++)
+                    switch (sfdSaveList.FilterIndex)
                     {
-                        sr.WriteLine(lstProducts.Items[i].ToString());
+                        case 1:
+                            SaveAsText();
+                            break;
+                        case 2:
+                            SaveAsCSV();
+                            break;
                     }
-                    //Closes stream and frees resources
-                    sr.Dispose();
-                    sr.Close();
                 }
             }
             catch (Exception ex)
@@ -86,6 +81,35 @@ namespace StockChecker
             {
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void SaveAsText()
+        {
+            //Opens stream to write to the filename entered in the savedialog
+            StreamWriter sr = new StreamWriter(sfdSaveList.FileName);
+
+            //Write heading to file
+            sr.WriteLine("REORDER LIST");
+            sr.WriteLine("===================");
+
+            //Adds items in the listbox to the file
+            for (int i = 0; i < lstProducts.Items.Count; i++)
+            {
+                sr.WriteLine(lstProducts.Items[i].ToString());
+            }
+
+            //Closes stream and frees resources
+            sr.Dispose();
+            sr.Close();
+        }
+
+        private void SaveAsCSV()
+        {
+            StreamWriter sr = new StreamWriter(sfdSaveList.FileName);
+
+
+            sr.Dispose();
+            sr.Close();
         }
     }
 }

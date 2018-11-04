@@ -54,19 +54,19 @@ namespace StockChecker
             {
                 XmlTextReader txtin = new XmlTextReader(productList);
                 
-                ds.ReadXml(productList, XmlReadMode.InferSchema);
+                ds.ReadXml(productList);
                 dv = ds.Tables[2].DefaultView;
 
                 dgvProducts.DataSource = dv;
                 dgvProducts.Refresh();
 
-                while (txtin.Read())
+                foreach (DataColumn col in ds.Tables[2].Columns)
                 {
-                    if (txtin.NodeType.Equals(XmlNodeType.Element) && !cbxProductIDList.Items.Contains(txtin.Name))
-                    {
-                        cbxProductIDList.Items.Add(txtin.Name);
-                    }
+                    cbxProductIDList.Items.Add(col.ColumnName);
                 }
+                cbxProductIDList.Items.RemoveAt(7);
+                cbxProductIDList.Items.RemoveAt(8);
+                cbxProductIDList.Items.RemoveAt(9);
             }
             catch (Exception ex)
             {

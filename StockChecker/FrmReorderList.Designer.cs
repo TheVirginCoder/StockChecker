@@ -33,8 +33,8 @@
             this.btnSaveAsText = new System.Windows.Forms.Button();
             this.sfdSaveList = new System.Windows.Forms.SaveFileDialog();
             this.gbxSearch = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.gbxProducts.SuspendLayout();
             this.gbxSearch.SuspendLayout();
             this.SuspendLayout();
@@ -69,7 +69,7 @@
             // 
             // sfdSaveList
             // 
-            this.sfdSaveList.Filter = "Text File (*.txt)|*.txt";
+            this.sfdSaveList.Filter = "Text File (*.txt)|*.txt|CSV File|*.csv";
             // 
             // gbxSearch
             // 
@@ -82,13 +82,6 @@
             this.gbxSearch.TabStop = false;
             this.gbxSearch.Text = "groupBox1";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(100, 20);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(185, 20);
-            this.textBox1.TabIndex = 0;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(100, 47);
@@ -98,6 +91,13 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(100, 20);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(185, 20);
+            this.textBox1.TabIndex = 0;
             // 
             // FrmReorderList
             // 
