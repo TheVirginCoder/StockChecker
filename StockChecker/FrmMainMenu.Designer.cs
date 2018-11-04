@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnStockSearch = new System.Windows.Forms.Button();
+            this.btnProductInformation = new System.Windows.Forms.Button();
             this.btnReorderList = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnStockSearch
+            // btnProductInformation
             // 
-            this.btnStockSearch.BackColor = System.Drawing.Color.Red;
-            this.btnStockSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStockSearch.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStockSearch.ForeColor = System.Drawing.Color.White;
-            this.btnStockSearch.Location = new System.Drawing.Point(12, 53);
-            this.btnStockSearch.Name = "btnStockSearch";
-            this.btnStockSearch.Size = new System.Drawing.Size(101, 51);
-            this.btnStockSearch.TabIndex = 0;
-            this.btnStockSearch.Text = "Stock Search";
-            this.btnStockSearch.UseVisualStyleBackColor = false;
-            this.btnStockSearch.Click += new System.EventHandler(this.btnStockSearch_Click);
-            this.btnStockSearch.MouseEnter += new System.EventHandler(this.btnStockSearch_MouseEnter);
-            this.btnStockSearch.MouseLeave += new System.EventHandler(this.btnStockSearch_MouseLeave);
+            this.btnProductInformation.BackColor = System.Drawing.Color.Red;
+            this.btnProductInformation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProductInformation.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProductInformation.ForeColor = System.Drawing.Color.White;
+            this.btnProductInformation.Location = new System.Drawing.Point(12, 53);
+            this.btnProductInformation.Name = "btnProductInformation";
+            this.btnProductInformation.Size = new System.Drawing.Size(101, 51);
+            this.btnProductInformation.TabIndex = 0;
+            this.btnProductInformation.Text = "Product Info";
+            this.btnProductInformation.UseVisualStyleBackColor = false;
+            this.btnProductInformation.Click += new System.EventHandler(this.btnProductInformation_Click);
+            this.btnProductInformation.MouseEnter += new System.EventHandler(this.btnProductInformation_MouseEnter);
+            this.btnProductInformation.MouseLeave += new System.EventHandler(this.btnProductInformation_MouseLeave);
             // 
             // btnReorderList
             // 
@@ -102,7 +102,7 @@
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnReorderList);
-            this.Controls.Add(this.btnStockSearch);
+            this.Controls.Add(this.btnProductInformation);
             this.Name = "FrmMainMenu";
             this.Text = "Tesco Stock Checker";
             this.ResumeLayout(false);
@@ -112,7 +112,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnStockSearch;
+        private System.Windows.Forms.Button btnProductInformation;
         private System.Windows.Forms.Button btnReorderList;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnExit;

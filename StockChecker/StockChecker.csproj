@@ -57,11 +57,11 @@
     <Compile Include="FrmReorderList.Designer.cs">
       <DependentUpon>FrmReorderList.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmStockCheckerMain.cs">
+    <Compile Include="FrmProductInformation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmStockCheckerMain.Designer.cs">
-      <DependentUpon>FrmStockCheckerMain.cs</DependentUpon>
+    <Compile Include="FrmProductInformation.Designer.cs">
+      <DependentUpon>FrmProductInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="StockChecker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,8 +71,8 @@
     <EmbeddedResource Include="FrmReorderList.resx">
       <DependentUpon>FrmReorderList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmStockCheckerMain.resx">
-      <DependentUpon>FrmStockCheckerMain.cs</DependentUpon>
+    <EmbeddedResource Include="FrmProductInformation.resx">
+      <DependentUpon>FrmProductInformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

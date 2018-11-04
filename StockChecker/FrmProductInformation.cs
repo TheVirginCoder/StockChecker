@@ -12,13 +12,13 @@ using System.Xml.XPath;
 
 namespace StockChecker
 {
-    public partial class FrmStockCheckerMain : Form
+    public partial class FrmProductInformation : Form
     {
         DataSet ds = new DataSet();
         DataView dv;
         const string productList = "../../res/Products.xml";
 
-        public FrmStockCheckerMain()
+        public FrmProductInformation()
         {
             InitializeComponent();
         }

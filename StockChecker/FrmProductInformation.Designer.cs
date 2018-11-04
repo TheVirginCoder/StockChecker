@@ -1,6 +1,6 @@
 ﻿namespace StockChecker
 {
-    partial class FrmStockCheckerMain
+    partial class FrmProductInformation
     {
         /// <summary>
         /// Required designer variable.
@@ -101,7 +101,7 @@
             this.Controls.Add(this.cbxProductIDList);
             this.Controls.Add(this.lblProductID);
             this.Name = "FrmStockCheckerMain";
-            this.Text = "Stock Checker Program";
+            this.Text = "Product Information";
             this.Load += new System.EventHandler(this.FrmStockCheckerMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.ResumeLayout(false);

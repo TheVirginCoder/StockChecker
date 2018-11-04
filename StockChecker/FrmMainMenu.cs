@@ -17,9 +17,9 @@ namespace StockChecker
             InitializeComponent();
         }
 
-        private void btnStockSearch_Click(object sender, EventArgs e)
+        private void btnProductInformation_Click(object sender, EventArgs e)
         {
-            FrmStockCheckerMain stocksearch = new FrmStockCheckerMain();
+            FrmProductInformation stocksearch = new FrmProductInformation();
             stocksearch.Show();
             this.Hide();
         }
@@ -41,14 +41,14 @@ namespace StockChecker
             btnReorderList.BackColor = Color.Red;
         }
 
-        private void btnStockSearch_MouseEnter(object sender, EventArgs e)
+        private void btnProductInformation_MouseEnter(object sender, EventArgs e)
         {
-            btnStockSearch.BackColor = Color.Navy;
+            btnProductInformation.BackColor = Color.Navy;
         }
 
-        private void btnStockSearch_MouseLeave(object sender, EventArgs e)
+        private void btnProductInformation_MouseLeave(object sender, EventArgs e)
         {
-            btnStockSearch.BackColor = Color.Red;
+            btnProductInformation.BackColor = Color.Red;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
