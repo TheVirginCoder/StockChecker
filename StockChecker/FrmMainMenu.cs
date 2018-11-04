@@ -60,5 +60,15 @@ namespace StockChecker
                 Application.Exit();
             }
         }
+
+        private void btnExit_MouseEnter(object sender, EventArgs e)
+        {
+            btnStockSearch.BackColor = Color.Navy;
+        }
+
+        private void btnExit_MouseLeave(object sender, EventArgs e)
+        {
+            btnStockSearch.BackColor = Color.Red;
+        }
     }
 }
