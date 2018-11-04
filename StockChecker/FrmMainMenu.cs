@@ -19,6 +19,7 @@ namespace StockChecker
 
         private void btnProductInformation_Click(object sender, EventArgs e)
         {
+            //Open product info form
             FrmProductInformation stocksearch = new FrmProductInformation();
             stocksearch.Show();
             this.Hide();
@@ -26,6 +27,7 @@ namespace StockChecker
 
         private void btnReorderList_Click(object sender, EventArgs e)
         {
+            //Open reorder list form
             FrmReorderList reorderList = new FrmReorderList();
             reorderList.Show();
             this.Hide();
@@ -53,8 +55,10 @@ namespace StockChecker
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            //Ask the user if they want to exit
             DialogResult exit = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            //If yes, close the program
             if (exit.Equals(DialogResult.Yes))
             {
                 Application.Exit();

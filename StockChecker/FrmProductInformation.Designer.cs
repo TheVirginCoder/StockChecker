@@ -179,6 +179,8 @@
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            this.btnClear.MouseEnter += new System.EventHandler(this.btnClear_MouseEnter);
+            this.btnClear.MouseLeave += new System.EventHandler(this.btnClear_MouseLeave);
             // 
             // FrmProductInformation
             // 
