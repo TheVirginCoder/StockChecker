@@ -1,0 +1,4 @@
+ProductID,ProductName,SupplierID,CategoryID,QuantityPerUnit,UnitPrice,UnitsInStock,UnitsOnOrder,ReorderLevel,Discontinued
+24,Fanta,10,1,12 - 355 ml cans,4.5,20,0,40,0
+76,Prosecco Spumante,23,1,500 ml,18,12,0,20,0
+31,Gorgonzola Piccante,14,4,12 - 100 g pkgs,12.5,0,70,20,0

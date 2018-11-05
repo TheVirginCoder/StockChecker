@@ -153,7 +153,7 @@ namespace StockChecker
                     StreamWriter sw = new StreamWriter(sfdExport.FileName); //Allow the program to write to file
 
                     //Write the headers to file, loops through number of columns
-                    for (int header = 0; header <= dgvProducts.Columns.Count - 1; header++)
+                    for (int header = 0; header < dgvProducts.Columns.Count; header++)
                     {
                         //Write comma if more than one item is written
                         if (header > 0)
@@ -165,14 +165,14 @@ namespace StockChecker
                     
                     sw.WriteLine(); //Write newline
 
-                    for (int j = 0; j <= dgvProducts.Columns.Count - 1; j++)
+                    for (int j = 0; j < dgvProducts.Rows.Count - 1; j++)
                     {
                         if (j > 0)
                         {
                             sw.WriteLine();
                         }
 
-                        for (int i = 0; i <= dgvProducts.Columns.Count - 1; i++)
+                        for (int i = 0; i < dgvProducts.Columns.Count; i++)
                         {
                             //Write comma if there is more than one value
                             if (i > 0)

@@ -1,0 +1,82 @@
+REORDER LIST
+===================
+Product Name: Prosecco Spumante
+Remaining Stock: 12
+Reorder Level: 20
+====================
+Product Name: Branston Sweet Piccalilli
+Remaining Stock: 4
+Reorder Level: 20
+====================
+Product Name: Golden Syrup
+Remaining Stock: 13
+Reorder Level: 25
+====================
+Product Name: Colman's Spaghetti Bolognese Recipe Mix
+Remaining Stock: 0
+Reorder Level: 0
+====================
+Product Name: Ocean Spray Cranberry Sauce
+Remaining Stock: 6
+Reorder Level: 10
+====================
+Product Name: Haywood And Padgett Sultana Scones
+Remaining Stock: 3
+Reorder Level: 5
+====================
+Product Name: Hobnob Raspberry Flapjacks
+Remaining Stock: 10
+Reorder Level: 15
+====================
+Product Name: Scottish Shortbread
+Remaining Stock: 6
+Reorder Level: 15
+====================
+Product Name: Gallbani Mozzarella
+Remaining Stock: 14
+Reorder Level: 6
+====================
+Product Name: Gorgonzola Piccante
+Remaining Stock: 0
+Reorder Level: 20
+====================
+Product Name: Mascarpone
+Remaining Stock: 9
+Reorder Level: 25
+====================
+Product Name: Cornish Pasties
+Remaining Stock: 0
+Reorder Level: 0
+====================
+Product Name: Corned Beef
+Remaining Stock: 0
+Reorder Level: 0
+====================
+Product Name: Bratwurst Sausages
+Remaining Stock: 0
+Reorder Level: 0
+====================
+Product Name: Dried Apricots
+Remaining Stock: 10
+Reorder Level: 20
+====================
+Product Name: Longlife Tofu
+Remaining Stock: 4
+Reorder Level: 5
+====================
+Product Name: Sardines
+Remaining Stock: 12
+Reorder Level: 20
+====================
+Product Name: Smoked Mackerel
+Remaining Stock: 5
+Reorder Level: 15
+====================
+Product Name: Smoked Salmon
+Remaining Stock: 11
+Reorder Level: 25
+====================
+Product Name: Smoked Kipper
+Remaining Stock: 10
+Reorder Level: 15
+====================
