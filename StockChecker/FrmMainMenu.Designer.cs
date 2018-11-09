@@ -71,11 +71,11 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.Red;
-            this.lblTitle.Location = new System.Drawing.Point(57, 9);
+            this.lblTitle.Location = new System.Drawing.Point(46, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(225, 24);
+            this.lblTitle.Size = new System.Drawing.Size(253, 24);
             this.lblTitle.TabIndex = 2;
-            this.lblTitle.Text = "Tesco Stock Checker";
+            this.lblTitle.Text = "Stock Checker Program";
             // 
             // btnExit
             // 

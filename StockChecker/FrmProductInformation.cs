@@ -17,6 +17,7 @@ namespace StockChecker
         DataSet productInfo = new DataSet();
         DataView tableInfo;
         const string productList = "../../res/Products.xml"; //Path to XML file
+        bool canClear;
 
         public FrmProductInformation()
         {
@@ -27,7 +28,7 @@ namespace StockChecker
         {
             try
             {
-                //Display erroris nothing is entered
+                //Display error if nothing is entered
                 if (string.IsNullOrWhiteSpace(txtProductName.Text))
                 {
                     MessageBox.Show("Error: Please enter a value");
@@ -37,18 +38,22 @@ namespace StockChecker
                     //Refresh datagridview to contain search results
                     productInfo.Tables[2].DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'", cbxSearchCriteria.Text, txtProductName.Text); 
                     dgvProducts.Refresh();
+                    canClear = true;
                 }
 
                 //Output warning if nothing is found
                 if (tableInfo.Count == 0)
                 {
-                    MessageBox.Show("No results found!", "Search", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No results found!", "Search", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    InitializeTable();
                 }
             }
             catch (Exception ex)
             {
                 //Error message if exception is thrown
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message, "Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -58,11 +63,13 @@ namespace StockChecker
             {
                 //Initialize Datagridview
                 InitializeTable();
+                InitializeComboBox();
                 cbxSearchCriteria.SelectedIndex = 1;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message, "Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -72,7 +79,6 @@ namespace StockChecker
             FrmMainMenu returnToMain = new FrmMainMenu();
             returnToMain.Show();
             this.Dispose();
-            this.Close();
         }
 
         private void btnReorderList_Click(object sender, EventArgs e)
@@ -87,7 +93,8 @@ namespace StockChecker
         private void btnExit_Click(object sender, EventArgs e)
         {
             //Ask the user if they wish to exit
-            DialogResult exit = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult exit = MessageBox.Show("Are you sure you want to exit?", 
+                "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             //If yes, close the program
             if (exit.Equals(DialogResult.Yes))
@@ -195,7 +202,8 @@ namespace StockChecker
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: " + ex.Message, "Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -203,12 +211,19 @@ namespace StockChecker
         {
             //Read the XML file and store it in the dataset
             productInfo.ReadXml(productList);
+            productInfo.Tables[2].DefaultView.RowFilter = string.Empty;
             tableInfo = productInfo.Tables[2].DefaultView;
 
             //Store the info in the datagridview
             dgvProducts.DataSource = tableInfo;
             dgvProducts.Refresh();
 
+            //Stop user resetting the results
+            canClear = false;
+        }
+
+        private void InitializeComboBox()
+        {
             //Set up combobox items
             foreach (DataColumn col in productInfo.Tables[2].Columns)
             {
@@ -232,10 +247,18 @@ namespace StockChecker
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            //Reset all values in the form
-            txtProductName.Text = "";
-            InitializeTable();
-            cbxSearchCriteria.SelectedIndex = 1;
+            if (canClear)
+            {
+                //Reset all values in the form
+                txtProductName.Text = "";
+                InitializeTable();
+                cbxSearchCriteria.SelectedIndex = 1;
+            }
+            else
+            {
+                MessageBox.Show("There are no search results to clear.", 
+                    "Clear", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnClear_MouseEnter(object sender, EventArgs e)
