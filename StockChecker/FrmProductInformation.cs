@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Xml;
 
 namespace StockChecker
 {
@@ -36,7 +30,8 @@ namespace StockChecker
                 else
                 {
                     //Refresh datagridview to contain search results
-                    productInfo.Tables[2].DefaultView.RowFilter = string.Format("{0} LIKE '%{1}%'", cbxSearchCriteria.Text, txtProductName.Text); 
+                    productInfo.Tables[2].DefaultView.RowFilter = 
+                        string.Format("{0} LIKE '%{1}%'", cbxSearchCriteria.Text, txtProductName.Text); 
                     dgvProducts.Refresh();
                     canClear = true;
                 }
@@ -143,7 +138,8 @@ namespace StockChecker
             btnSearch.BackColor = Color.Red;
         }
 
-        private void FrmProductInformation_FormClosed(object sender, FormClosedEventArgs e)
+        private void FrmProductInformation_FormClosed(object sender, 
+            FormClosedEventArgs e)
         {
             Application.Exit();
         }
@@ -157,7 +153,8 @@ namespace StockChecker
                 //Execute if user clicks Save in the dialog
                 if (sfdExport.ShowDialog() == DialogResult.OK)
                 {
-                    StreamWriter sw = new StreamWriter(sfdExport.FileName); //Allow the program to write to file
+                    //Allow the program to write to file
+                    StreamWriter sw = new StreamWriter(sfdExport.FileName);
 
                     //Write the headers to file, loops through number of columns
                     for (int header = 0; header < dgvProducts.Columns.Count; header++)
@@ -250,7 +247,7 @@ namespace StockChecker
             if (canClear)
             {
                 //Reset all values in the form
-                txtProductName.Text = "";
+                txtProductName.Text = string.Empty;
                 InitializeTable();
                 cbxSearchCriteria.SelectedIndex = 1;
             }

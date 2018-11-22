@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Xml;
 using System.Xml.XPath;
 
 namespace StockChecker
@@ -198,7 +191,9 @@ namespace StockChecker
         private void btnExit_Click(object sender, EventArgs e)
         {
             //Prompt the user if they wish to close the program
-            DialogResult exit = MessageBox.Show("Are you sure you want to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult exit = 
+                MessageBox.Show("Are you sure you want to exit?", 
+                "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             //If they choose yes, close
             if (exit.Equals(DialogResult.Yes))

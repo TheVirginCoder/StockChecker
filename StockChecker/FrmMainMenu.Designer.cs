@@ -104,7 +104,7 @@
             this.Controls.Add(this.btnReorderList);
             this.Controls.Add(this.btnProductInformation);
             this.Name = "FrmMainMenu";
-            this.Text = "Tesco Stock Checker";
+            this.Text = "Stock Checker";
             this.ResumeLayout(false);
             this.PerformLayout();
 
